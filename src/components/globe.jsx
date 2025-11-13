@@ -223,7 +223,7 @@ export default function Globe() {
                 const pos = latLngToVector3(m.objects[0].lat, m.objects[0].lng, globeRadius + 1.5);
                 const geom = new THREE.SphereGeometry(0.5, 16, 16);
                 //const mat = new THREE.MeshStandardMaterial({ color: m.color, emissive: m.color });
-                const mat = new THREE.MeshStandardMaterial({ color: "green", emissive: "green" });
+                const mat = new THREE.MeshStandardMaterial({ color: "green", emissive: "green" ,emissiveIntensity: 10,});
                 const mesh = new THREE.Mesh(geom, mat);
                 mesh.userData = (m)
                 mesh.position.copy(pos);
@@ -366,6 +366,7 @@ export default function Globe() {
                         lng={selectedMarkerData.objects.map(o => o.lng)}
                         img={selectedMarkerData.image.path}
                         timestamp={selectedMarkerData.timestamp}
+                        color={selectedMarkerData.objects.map(o => o.details.color)}
                         handleClose={() => setSelectedMarkerData(null)}
                     />
                 )}
