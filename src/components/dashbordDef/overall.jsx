@@ -18,7 +18,7 @@ export default function Defence({realtimeDefenceData,realtimeOffenceData,defence
     useEffect(()=>{
         if (realtimeDefenceData){
             setCountDefence(realtimeDefenceData.objects.length)
-            if(setCountDefence){
+            if(countDefence){
                 setOffenceProvince("Detecting . . .")
             }
         }

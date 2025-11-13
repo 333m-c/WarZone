@@ -4,7 +4,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 
 export default function MapboxMap({ token, lat = [], lng = [], color = "rgba(248, 65, 65, 1)" }) {
     mapboxgl.accessToken = token;
-
+    console.log(color)
     const mapContainer = useRef(null);
     const mapRef = useRef(null);
     const markerSourceRef = useRef(null);
@@ -62,7 +62,7 @@ export default function MapboxMap({ token, lat = [], lng = [], color = "rgba(248
                 const features = lat.map((la, i) => ({
                     type: "Feature",
                     properties: {
-                        color: color // ← ใช้สีที่ส่งเข้ามา
+                        color: color[i] || "rgba(248, 65, 65, 1)" // ← ใช้สีที่ส่งเข้ามา
                     },
                     geometry: {
                         type: "Point",
@@ -95,7 +95,7 @@ export default function MapboxMap({ token, lat = [], lng = [], color = "rgba(248
         const features = lat.map((la, i) => ({
             type: "Feature",
             properties: {
-                color: color   // ← เปลี่ยนสี runtime ได้เลย!
+                color: color[i] || "rgba(248, 65, 65, 1)"  // ← เปลี่ยนสี runtime ได้เลย!
             },
             geometry: {
                 type: "Point",

@@ -233,12 +233,12 @@ export default function Globe() {
             });
         }
         if (type == "defence"){
-            setDashboard(<Defence/>)
+            setDashboard(<Defence realtimeDefenceData={realtimeDefenceData} realtimeOffenceData={realtimeOffenceData} defenceDaily={defenceDaily} offenceDaily={offenceDaily}/>)
             setDisplayLog(<LogBox history={defenceHistory} theme={"red"} haddleClick={setDisplayCard} haddleDisplay={()=>setDisplayCard(null)}/>)
             THREE.Cache.clear();
         }
         else if (type == "offence"){
-            setDashboard(<Offence/>)
+            setDashboard(<Offence realtimeDefenceData={realtimeDefenceData} realtimeOffenceData={realtimeOffenceData} defenceDaily={defenceDaily} offenceDaily={offenceDaily}/>)
             setDisplayLog(<LogBox history={offenceHistory} theme={"green"} haddleClick={setDisplayCard} haddleDisplay={()=>setDisplayCard(null)}/>)
             THREE.Cache.clear();
         }
@@ -366,7 +366,7 @@ export default function Globe() {
                         lng={selectedMarkerData.objects.map(o => o.lng)}
                         img={selectedMarkerData.image.path}
                         timestamp={selectedMarkerData.timestamp}
-                        color={selectedMarkerData.objects.map(o => o.details.color)}
+                        color={selectedMarkerData.objects.map(o => o.details?.color ?? "rgba(202, 46, 46, 1)")}
                         handleClose={() => setSelectedMarkerData(null)}
                     />
                 )}
