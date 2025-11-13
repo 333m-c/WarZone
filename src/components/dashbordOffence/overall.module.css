@@ -1,0 +1,48 @@
+.container{
+    position: fixed;
+    top: 30%;
+    width: 25%;
+    height: 35%;
+    background-color: rgba(46, 45, 45, 0.719);
+    animation: Display linear 0.2s;
+}
+
+.canvas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.box{
+    text-align: center;
+    justify-items: center;
+    margin-bottom: 3rem;
+}
+
+.countBox{
+    background-color: rgba(0, 0, 0, 0.356);
+    width: 30%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 20% 70%;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes Display {
+  0%{
+    left: -10%;
+  }
+  100%{
+    left: 0%;
+  }
+}

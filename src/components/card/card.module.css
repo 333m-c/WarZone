@@ -1,0 +1,93 @@
+.container{
+    height: 40%;
+    width: 30%;
+    background-color: rgba(100, 149, 255, 0.664);
+    border: 0.2rem solid rgba(255, 255, 255, 0.767);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    animation: Display linear 0.2s;
+    z-index: 10;
+}
+.box{
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+}
+.boxImg{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 1rem;
+}
+
+.imgWrapper {
+  display: grid;
+  grid-template-columns: 100%;
+  width: 48%;
+  height: 50%;
+}
+
+.imgDrone {
+  width: 100%;
+  height: auto;   /* ← auto height */
+  border-radius: 10px;
+  display: block;
+}
+@keyframes Display {
+  0%{
+    font-size: 0px;
+    transform: scale(0.8);
+  }
+  80%{
+    transform: scale(1.1);
+  }
+  99%{
+    font-size: 0px;
+  }
+  100%{
+    font-size: 2rem;
+    transform: scale(1);
+  }
+}
+.viewBtn {
+  margin-top: 1rem;
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  backdrop-filter: blur(2px);
+}
+
+.viewBtn:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.fullImage {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+}
