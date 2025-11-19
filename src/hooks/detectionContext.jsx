@@ -73,6 +73,7 @@ export const DetectionProvider = ({ camIdDefence, tokenDefence,camIdOffence,toke
   useEffect(() => {
     
     if (dataOffence?.data) {
+      // console.log(dataOffence)
       // const newObjs = [];
       // const newIds = [];
       // // ✅ รวมก่อน ไม่ setState ระหว่าง loop
@@ -153,6 +154,7 @@ export const DetectionProvider = ({ camIdDefence, tokenDefence,camIdOffence,toke
 
     socketInstanceOffence.on('connect', () => {
       console.log('✅ Socket connected');
+      // console.log(offenceHistory)
       setIsConnectedOffence(true);
       socketInstanceOffence.emit('subscribe_camera', { cam_id: camIdOffence });
     });

@@ -2,13 +2,16 @@ import { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-export default function MapboxMap({ token, lat = [], lng = [], color = "rgba(248, 65, 65, 1)" }) {
+export default function MapboxMap({ token, lat = [], lng = [], colors = "rgb(0, 255, 0)" }) {
     mapboxgl.accessToken = token;
-    console.log(color)
+    console.log(colors)
+    const color = Array.isArray(colors)
+        ? colors
+        : [colors]; 
     const mapContainer = useRef(null);
     const mapRef = useRef(null);
     const markerSourceRef = useRef(null);
-
+    const cleanColor = (c) => c.replace(/\s+/g, "");
     // ⭐ สร้างแผนที่ครั้งเดียว
     useEffect(() => {
         if (mapRef.current) return;
@@ -62,7 +65,7 @@ export default function MapboxMap({ token, lat = [], lng = [], color = "rgba(248
                 const features = lat.map((la, i) => ({
                     type: "Feature",
                     properties: {
-                        color: color[i] || "rgba(248, 65, 65, 1)" // ← ใช้สีที่ส่งเข้ามา
+                        color: color[i] || "rgb(0, 255, 0)" // ← ใช้สีที่ส่งเข้ามา
                     },
                     geometry: {
                         type: "Point",
@@ -95,7 +98,7 @@ export default function MapboxMap({ token, lat = [], lng = [], color = "rgba(248
         const features = lat.map((la, i) => ({
             type: "Feature",
             properties: {
-                color: color[i] || "rgba(248, 65, 65, 1)"  // ← เปลี่ยนสี runtime ได้เลย!
+                color: color[i] || "rgb(0, 255, 0)"  // ← เปลี่ยนสี runtime ได้เลย!
             },
             geometry: {
                 type: "Point",

@@ -22,14 +22,17 @@ export default function Offence({realtimeDefenceData,realtimeOffenceData,defence
         // }
         if (realtimeOffenceData){
             setCountOffence(realtimeOffenceData.objects.length)
-            if(countOffence){
-                setOffenceProvince("Attackting . . .")
+            if(countOffence>0){
+                setOffenceProvince("Attack detected!!")
+            }
+            else{
+                setOffenceProvince("No attacks detected")
             }
             // getProvince(realtimeOffenceData.objects[0].lat,realtimeOffenceData.objects[0].lng).then(setOffenceProvince);
         }
         // console.log(defenceDaily)
         // console.log(offenceDaily)
-    },[realtimeDefenceData,realtimeOffenceData])
+    },[realtimeDefenceData,realtimeOffenceData,countOffence])
     return (
     <div className={style.container}>
         <div className={style.box}>

@@ -18,7 +18,7 @@ export default function LogBox(props) {
       <div className={style.logContainer}>
         {props.history.map((obj) =>
           obj.objects.map((dron) => (
-            <button className={style.box} key={obj.id + "-" + dron.obj_id} onClick={()=>{props.haddleClick(<Card name={dron.obj_id} lat={[dron.lat]} lng={[dron.lng]} handleClose ={props.haddleDisplay} img={obj.image_path ?? obj.image?.path} timestamp={obj.timestamp}/>)}}>
+            <button className={style.box} key={obj.id + "-" + dron.obj_id} onClick={()=>{props.haddleClick(<Card name={dron.obj_id} lat={[dron.lat]} lng={[dron.lng]} color = {dron.details?.details?.color ?? dron.details?.color??"rgba(0, 255, 0, 1)"}handleClose ={props.haddleDisplay} img={obj.image_path ?? obj.image?.path} timestamp={obj.timestamp}/>)}}>
               <h5 style={{ color: props.theme === "red" ? "red" : "green" }}>
                 {
                   new Date(new Date(obj.timestamp).getTime() - 7 * 60 * 60 * 1000)

@@ -9,10 +9,10 @@ export default function Overall({realtimeDefenceData,realtimeOffenceData,defence
     const [defenceProvince,setDefenceProvince] =useState("No intruders detected")
     const [offenceProvince,setOffenceProvince] =useState("No attacks detected")
     async function getProvince(lat, lon) {
-        // const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`);
-        // const data = await res.json();
-        // return data.address.state || data.address.province || "ไม่ทราบจังหวัด";
-        return "Credit หมด"
+        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`);
+        const data = await res.json();
+        return data.address.state || data.address.province || "ไม่ทราบจังหวัด";
+        // return "Credit หมด"
     }
 
     useEffect(()=>{

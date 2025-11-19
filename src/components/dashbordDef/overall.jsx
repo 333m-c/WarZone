@@ -18,8 +18,11 @@ export default function Defence({realtimeDefenceData,realtimeOffenceData,defence
     useEffect(()=>{
         if (realtimeDefenceData){
             setCountDefence(realtimeDefenceData.objects.length)
-            if(countDefence){
-                setOffenceProvince("Detecting . . .")
+            if(countDefence>0){
+                setDefenceProvince("Enemy detected!!")
+            }
+            else{
+                setDefenceProvince("No intruders detected")
             }
         }
         // if (realtimeOffenceData){
@@ -31,7 +34,7 @@ export default function Defence({realtimeDefenceData,realtimeOffenceData,defence
         //}
         // console.log(defenceDaily)
         // console.log(offenceDaily)
-    },[realtimeDefenceData,realtimeOffenceData])
+    },[realtimeDefenceData,realtimeOffenceData,countDefence])
     return (
     <div className={style.container}>
         <div className={style.box}>

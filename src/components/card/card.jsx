@@ -28,7 +28,7 @@ export default function card(props) {
             token={import.meta.env.VITE_TOKEN_MAP_BOX}
             lat={props.lat}
             lng={props.lng}
-            color ={props.color}
+            colors ={props.color}
           />
 
           {/* รูปไม่ fix height */}
@@ -47,7 +47,7 @@ export default function card(props) {
                 setShowImage(true); 
               }}
             >
-              ดูภาพเต็ม
+              View Picture
             </button>
           </div>
 

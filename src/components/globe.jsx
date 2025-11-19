@@ -366,7 +366,7 @@ export default function Globe() {
                         lng={selectedMarkerData.objects.map(o => o.lng)}
                         img={selectedMarkerData.image.path}
                         timestamp={selectedMarkerData.timestamp}
-                        color={selectedMarkerData.objects.map(o => o.details?.color ?? "rgba(202, 46, 46, 1)")}
+                        color={selectedMarkerData.objects.map(o => o.details?.color ?? "rgb(202, 46, 46)")}
                         handleClose={() => setSelectedMarkerData(null)}
                     />
                 )}
